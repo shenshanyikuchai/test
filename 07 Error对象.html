@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>请输入 5 和 10 之间的一个数:</p>
+
+<input id="demo" type="text">
+<button type="button" onclick="myFunction()">检测输入</button>
+<p id="message"></p>
+
+<script>
+// Error对象的使用
+// var newErrorObj = new Error();
+// var newErrorObj = new Error(number);
+// var newErrorObj = new Error(
+//   number,
+//   description
+// );
+
+//参数说明：
+//number:与错误相联的数字值。如果省略则为零。
+//description是描述错误的简短字符串。如果省略则为空字符串。
+
+
+
+function myFunction() {
+    var message, x;
+    message = document.getElementById("message");
+    message.innerHTML = "";
+    x = document.getElementById("demo").value;
+    try { 
+        if(x == "")  throw "为空";
+        if(isNaN(x)) throw "不是一个数字";
+        if(x > 10)   throw "太大了";
+        if(x < 5)    throw "太小了";
+    }
+    catch(err) {
+        message.innerHTML = "输入的值 " + err;
+    }
+}
+
+
+// try
+// { 
+// x = y                           // 产生错误。
+// }catch(e){                         // 创建局部变量 e。
+//   response.write(e)                  // 打印 "[objecError]".
+//   response.write(e.number & 0xFFFF)  // 打印 5009。
+//   response.write(e.description)      // 打印 "'y' isundefined".
+// }
+
+
+
+</script>
+
+</body>
+</html>
+
